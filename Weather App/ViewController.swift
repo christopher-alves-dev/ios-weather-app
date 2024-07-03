@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     private lazy var backgroundView: UIImageView = { //só cria o componente quando necessário
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.setTranslateAutoResizingToFalse()
         
         imageView.image = UIImage(named: "background")
         imageView.contentMode = .scaleAspectFill
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     private lazy var headerView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setTranslateAutoResizingToFalse()
         
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     private lazy var cityLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.font = UIFont.systemFont(ofSize: 20)
         label.text = "São Paulo"
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     
     private lazy var temperatureLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
         label.text = "25ºC"
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     
     private lazy var weatherIcon: UIImageView = { //só cria o componente quando necessário
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.setTranslateAutoResizingToFalse()
         
         imageView.image = UIImage(named: "sun")
         imageView.contentMode = .scaleAspectFill
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     
     private lazy var humidityLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "Umidade"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     
     private lazy var humidityValueLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "1000mm"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -86,16 +86,17 @@ class ViewController: UIViewController {
     
     private lazy var humidityStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [humidityLabel, humidityValueLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.setTranslateAutoResizingToFalse()
         
         stackView.axis = .horizontal
         
         return stackView
     }()
     
+    
     private lazy var windLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "Vento"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -106,7 +107,7 @@ class ViewController: UIViewController {
     
     private lazy var windValueLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "10km/h"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -117,7 +118,7 @@ class ViewController: UIViewController {
     
     private lazy var windStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [windLabel, windValueLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.setTranslateAutoResizingToFalse()
         
         stackView.axis = .horizontal
         
@@ -126,7 +127,7 @@ class ViewController: UIViewController {
     
     private lazy var statsStackView: UIStackView = {
        let stackView = UIStackView(arrangedSubviews: [humidityStackView, windStackView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.setTranslateAutoResizingToFalse()
         
         stackView.axis = .vertical
         stackView.backgroundColor = UIColor(named: "softGray")
@@ -140,7 +141,7 @@ class ViewController: UIViewController {
     
     private lazy var hourlyForecastLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "PREVISÃO POR HORA"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -152,7 +153,7 @@ class ViewController: UIViewController {
     
     private lazy var dailyForecastLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "PRÓXIMOS DIAS"
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
@@ -164,7 +165,7 @@ class ViewController: UIViewController {
     
     private lazy var dailyForecastTableView: UITableView = {
        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.setTranslateAutoResizingToFalse()
         
         tableView.backgroundColor = .clear
         tableView.dataSource = self
@@ -181,7 +182,7 @@ class ViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.setTranslateAutoResizingToFalse()
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.register(HourlyForecastCollectionViewCell.self, forCellWithReuseIdentifier: HourlyForecastCollectionViewCell.identifier)
@@ -247,8 +248,6 @@ class ViewController: UIViewController {
             weatherIcon.heightAnchor.constraint(equalToConstant: 86),
             weatherIcon.centerYAnchor.constraint(equalTo: temperatureLabel.centerYAnchor),
             weatherIcon.leadingAnchor.constraint(equalTo: temperatureLabel.trailingAnchor, constant: 14)
-      
-            
         ])
         
         NSLayoutConstraint.activate([

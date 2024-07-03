@@ -12,7 +12,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     
     private lazy var weekDayLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "TER"
         label.textColor = UIColor.contrastColor
@@ -23,7 +23,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     
     private lazy var minTemperatureLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "min 24ºC"
         label.textColor = UIColor.contrastColor
@@ -34,7 +34,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     
     private lazy var maxTemperatureLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "max 37ºC"
         label.textColor = UIColor.contrastColor
@@ -46,7 +46,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.setTranslateAutoResizingToFalse()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "cloudIcon")
         
@@ -62,7 +62,7 @@ class DailyForecastTableViewCell: UITableViewCell {
             maxTemperatureLabel
         ])
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.setTranslateAutoResizingToFalse()
         
         stackView.axis = .horizontal
         stackView.isLayoutMarginsRelativeArrangement = true

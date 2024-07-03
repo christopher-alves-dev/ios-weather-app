@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 extension UIView {
+    func setTranslateAutoResizingToFalse () {
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     func setConstraintsToParent(_ parent: UIView) {
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: parent.topAnchor),

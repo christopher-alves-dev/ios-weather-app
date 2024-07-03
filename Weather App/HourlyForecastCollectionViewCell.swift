@@ -12,7 +12,7 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     
     private lazy var stackView: UIStackView = {
        let stackView = UIStackView(arrangedSubviews: [hourLabel, iconImageView, temperatureLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.setTranslateAutoResizingToFalse()
         
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -26,7 +26,7 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var hourLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "13:00"
         label.textColor = UIColor.contrastColor
@@ -38,7 +38,7 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     
     private lazy var temperatureLabel: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setTranslateAutoResizingToFalse()
         
         label.text = "25ºC"
         label.textColor = UIColor.contrastColor
@@ -50,7 +50,7 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.setTranslateAutoResizingToFalse()
         
         imageView.image = UIImage(named: "sun")
         imageView.contentMode = .scaleAspectFit
