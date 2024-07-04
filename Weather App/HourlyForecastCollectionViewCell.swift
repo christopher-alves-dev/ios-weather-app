@@ -28,7 +28,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.setTranslateAutoResizingToFalse()
         
-        label.text = "13:00"
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
         label.textAlignment = .center
@@ -40,7 +39,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.setTranslateAutoResizingToFalse()
         
-        label.text = "25ºC"
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.textAlignment = .center
@@ -52,7 +50,6 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.setTranslateAutoResizingToFalse()
         
-        imageView.image = UIImage(named: "sun")
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -66,6 +63,12 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func loadData(time: String?, icon: UIImage?, temp: String?){
+        hourLabel.text = time
+        iconImageView.image = icon
+        temperatureLabel.text = temp
     }
     
     private func setupView() {

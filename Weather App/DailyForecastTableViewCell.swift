@@ -14,7 +14,6 @@ class DailyForecastTableViewCell: UITableViewCell {
        let label = UILabel()
         label.setTranslateAutoResizingToFalse()
         
-        label.text = "TER"
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         
@@ -25,7 +24,6 @@ class DailyForecastTableViewCell: UITableViewCell {
        let label = UILabel()
         label.setTranslateAutoResizingToFalse()
         
-        label.text = "min 24ºC"
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         
@@ -35,8 +33,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     private lazy var maxTemperatureLabel: UILabel = {
        let label = UILabel()
         label.setTranslateAutoResizingToFalse()
-        
-        label.text = "max 37ºC"
+
         label.textColor = UIColor.contrastColor
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         
@@ -48,8 +45,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         
         imageView.setTranslateAutoResizingToFalse()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "cloudIcon")
-        
         
         return imageView
     }()
@@ -82,6 +77,13 @@ class DailyForecastTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func loadData(weekDay: String?, min: String?, max: String?, icon: UIImage?){
+        weekDayLabel.text = weekDay
+        minTemperatureLabel.text = "min \(min ?? "")"
+        maxTemperatureLabel.text = "max \(max ?? "")"
+        iconImageView.image = icon
+    }
+    
     private func setupView() {
         backgroundColor = .clear
         selectionStyle = .none
@@ -97,6 +99,8 @@ class DailyForecastTableViewCell: UITableViewCell {
     private func setConstraints() {
         stackView.setConstraintsToParent(contentView)
         
-        NSLayoutConstraint.activate([weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50)])
+        NSLayoutConstraint.activate([
+            weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50)
+        ])
     }
 }
