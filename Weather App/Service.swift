@@ -7,6 +7,9 @@
 
 import Foundation
 
+private let env = ProcessInfo.processInfo.environment
+private let apiKey: String = env["OPEN_WEATHER_API_KEY"] ?? ""
+
 struct City {
     let lat: String
     let lon: String
@@ -15,7 +18,7 @@ struct City {
 
 class Service {
     private let baseURL: String = "https://api.openweathermap.org/data/3.0/onecall"
-    private let apiKey: String = "cbb403f4ba87c6bfb6a08fd5406c80e8"
+
     private let session = URLSession.shared
     
     func fetchData(city: City, _ completion: @escaping (ForecastResponse?) -> Void) {
